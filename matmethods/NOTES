@@ -1,0 +1,4 @@
+install matmethods dev version:
+	pip install -e git+https://github.com/hackingmaterials/MatMethods.git@4d26b19c5c28010a34c50cd8b98453d733178577#egg=matmethods_dev
+
+need folder reference_files with Si reference calcs for fake vasp run and Si potcar file
