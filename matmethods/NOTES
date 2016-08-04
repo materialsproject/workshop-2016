@@ -6,4 +6,5 @@ start terminal:
 
       start mongod
 
-need folder reference_files with Si reference calcs for fake vasp run and Si potcar file
+Reference vasp runs for Si bandstructure and elasticity calculations + Si potcar:
+	  /global/homes/k/kmathew/Workshop-2016/
