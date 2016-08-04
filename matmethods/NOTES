@@ -1,4 +1,10 @@
-install matmethods dev version:
-	pip install -e git+https://github.com/hackingmaterials/MatMethods.git@4d26b19c5c28010a34c50cd8b98453d733178577#egg=matmethods_dev
+start terminal:
+      source activate python2
 
-need folder reference_files with Si reference calcs for fake vasp run and Si potcar file
+      install matmethods dev version
+      	      git clone https://github.com/hackingmaterials/MatMethods.git
+
+      start mongod
+
+Reference vasp runs for Si bandstructure and elasticity calculations + Si potcar:
+	  /global/homes/k/kmathew/Workshop-2016/

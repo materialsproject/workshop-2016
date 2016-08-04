@@ -1,0 +1,7 @@
+{
+    "aliases": {}, 
+    "collection": "tasks",
+    "database": "vasp_mm", 
+    "host": "localhost", 
+    "port": 27017
+}
