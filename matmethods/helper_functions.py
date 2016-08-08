@@ -72,3 +72,13 @@ def simulate_bandstructure_vasprun(wf, ref_dir="/wkshp_shared"):
                    "nscf uniform": os.path.join(reference_dir, "Si_nscf_uniform"),
                    "nscf line": os.path.join(reference_dir, "Si_nscf_line")}
     return use_fake_vasp(wf, si_ref_dirs)
+
+
+def simulate_elasticity_vasprun(wf, deformations, ref_dir="/wkshp_shared"):
+    reference_dir = os.path.join(ref_dir, "Si_elastic_runs")
+    si_ref_dirs = {"structure optimization": os.path.join(reference_dir,
+                                                          "Si-structure_optimization")}
+    for i, deformation in enumerate(deformations):
+        si_ref_dirs["elastic_deformation_"+str(i+1)] = os.path.join(reference_dir,
+                                                                    "Si-elastic_deformation-"+str(i+1))
+    return use_fake_vasp(wf, si_ref_dirs, params_to_check=["ENCUT"])
