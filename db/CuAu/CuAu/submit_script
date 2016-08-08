@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q glean
+#PBS -N job
+#PBS -l nodes=1:ppn=24:haswell
+#PBS -l walltime=24:00:00
+#PBS -o run_vasp.out
+#PBS -e job.err
+#PBS -V
+#PBS -M ongsp@ucsd.edu
+#PBS -m a
+#PBS -A ong-group
+#PBS -d /home/ongsp/Li2O/CuAu
+
+module load vasp scipy/2.7
+run_vasp -c "mpirun -machinefile $PBS_NODEFILE -np 24 /opt/vasp/5.4.1/bin/vasp" -z -s /oasis/tscc/scratch/ongsp relax relax

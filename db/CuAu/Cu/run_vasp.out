@@ -1,0 +1,25 @@
+
+tscc-mgr.local: 
+                                                                                  Req'd    Req'd       Elap
+Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory   Time    S   Time
+----------------------- ----------- -------- ---------------- ------ ----- ------ ------ --------- - ---------
+5781161.tscc-mgr.local  ongsp       glean    job                   0     1     24    --   24:00:00 R  00:00:02
+5781162.tscc-mgr.local  ongsp       glean    job                 --      1     24    --   24:00:00 R  00:00:02
+5781163.tscc-mgr.local  ongsp       glean    job                 --      1     24    --   24:00:00 Q       -- 
+
+tscc-mgr.local: 
+                                                                                  Req'd    Req'd       Elap
+Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory   Time    S   Time
+----------------------- ----------- -------- ---------------- ------ ----- ------ ------ --------- - ---------
+5781161.tscc-mgr.local  ongsp       glean    job                   0     1     24    --   24:00:00 R  00:00:05
+5781162.tscc-mgr.local  ongsp       glean    job               29527     1     24    --   24:00:00 R  00:00:01
+5781163.tscc-mgr.local  ongsp       glean    job                 --      1     24    --   24:00:00 Q       -- 
+Nodes:        tscc-3-14
+
+tscc-mgr.local: 
+                                                                                  Req'd    Req'd       Elap
+Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory   Time    S   Time
+----------------------- ----------- -------- ---------------- ------ ----- ------ ------ --------- - ---------
+5781161.tscc-mgr.local  ongsp       glean    job                   0     1     24    --   24:00:00 R  00:00:43
+5781162.tscc-mgr.local  ongsp       glean    job               29527     1     24    --   24:00:00 R  00:00:39
+5781163.tscc-mgr.local  ongsp       glean    job               16041     1     24    --   24:00:00 R  00:00:34

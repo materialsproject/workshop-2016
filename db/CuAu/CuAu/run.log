@@ -1,0 +1,19 @@
+2016-08-08 12:04:32,041 Handlers used are ['VaspErrorHandler', 'MeshSymmetryErrorHandler', 'UnconvergedErrorHandler', 'NonConvergingErrorHandler', 'PotimErrorHandler']
+2016-08-08 12:04:32,565 Run started at 2016-08-08 12:04:32.564970 in /oasis/tscc/scratch/ongsp/tmp4072zF.
+2016-08-08 12:04:32,565 Custodian running on Python version 2.7.9 (default, Mar 16 2015, 22:34:30)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-11)]
+2016-08-08 12:04:32,663 Starting job no. 1 (VaspJob) attempt no. 1. Errors thus far = 0.
+2016-08-08 12:04:32,688 Running mpirun -machinefile /var/spool/torque/aux//5781163.tscc-mgr.local -np 24 /opt/vasp/5.4.1/bin/vasp
+2016-08-08 12:05:02,739 VaspJob.run has completed. Checking remaining handlers
+2016-08-08 12:05:02,747 Backing up run to error.1.tar.gz.
+2016-08-08 12:05:03,093 {u'handler': <custodian.vasp.handlers.VaspErrorHandler object at 0x2b46b2ea8f50>, u'errors': [u'brmix', u'dentet'], u'actions': [{u'action': {u'_set': {u'ISMEAR': 0}}, u'dict': u'INCAR'}, {u'action': {u'_set': {u'ISTART': 1}}, u'dict': u'INCAR'}]}
+2016-08-08 12:05:03,312 Starting job no. 1 (VaspJob) attempt no. 2. Errors thus far = 1.
+2016-08-08 12:05:03,337 Running mpirun -machinefile /var/spool/torque/aux//5781163.tscc-mgr.local -np 24 /opt/vasp/5.4.1/bin/vasp
+2016-08-08 12:05:43,392 VaspJob.run has completed. Checking remaining handlers
+2016-08-08 12:05:44,280 Checkpoint written to /home/ongsp/Li2O/CuAu/custodian.chk.1.tar.gz
+2016-08-08 12:05:44,342 Starting job no. 2 (VaspJob) attempt no. 1. Errors thus far = 1.
+2016-08-08 12:05:44,369 Running mpirun -machinefile /var/spool/torque/aux//5781163.tscc-mgr.local -np 24 /opt/vasp/5.4.1/bin/vasp
+2016-08-08 12:06:04,400 VaspJob.run has completed. Checking remaining handlers
+2016-08-08 12:06:04,791 Checkpoint written to /home/ongsp/Li2O/CuAu/custodian.chk.2.tar.gz
+2016-08-08 12:06:04,791 Logging to custodian.json...
+2016-08-08 12:06:04,799 Run ended at 2016-08-08 12:06:04.799824.
+2016-08-08 12:06:04,799 Run completed. Total time taken = 0:01:32.234854.
