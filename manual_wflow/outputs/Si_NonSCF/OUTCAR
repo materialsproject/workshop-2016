@@ -1,6 +1,6 @@
  vasp.5.4.1 24Jun15 (build Feb 01 2016 23:38:11) complex                        
   
- executed on           IFC91_impi date 2016.08.04  11:31:10
+ executed on           IFC91_impi date 2016.08.04  16:42:38
  running on   32 total cores
  distrk:  each k-point on   32 cores,    1 groups
  distr:  one band on NCORES_PER_BAND=   1 cores,   32 groups
@@ -196,7 +196,7 @@ Space group operators:
    ENCUT  =  520.0 eV  38.22 Ry    6.18 a.u.   7.19  7.19  7.19*2*pi/ulx,y,z
    ENINI  =  520.0     initial cutoff
    ENAUG  =  322.1 eV  augmentation charge cutoff
-   NELM   =    100;   NELMIN=  2; NELMDL=  0     # of ELM steps 
+   NELM   =    100;   NELMIN=  2; NELMDL= -5     # of ELM steps 
    EDIFF  = 0.1E-03   stopping-criterion for ELM
    LREAL  =      T    real-space projection
    NLSPLINE    = F    spline interpolate recip. space projectors
@@ -884,7 +884,7 @@ Space group operators:
    one-center:          6. kBytes
    wavefun   :       6213. kBytes
  
-     INWAV:  cpu time    0.0010: real time    0.0001
+     INWAV:  cpu time    0.0000: real time    0.0001
  initial charge density was supplied:
  number of electron       8.0000001 magnetization 
  keeping initial charge density in first step
@@ -905,18 +905,18 @@ Space group operators:
  Maximum number of reciprocal cells 3x 3x 3
 
  FEWALD executed in parallel
-    FEWALD:  cpu time    0.0030: real time    0.0031
+    FEWALD:  cpu time    0.0030: real time    0.0030
 
 
 ----------------------------------------- Iteration    1(   1)  ---------------------------------------
 
 
-    POTLOK:  cpu time    0.0660: real time    0.0665
-    SETDIJ:  cpu time    0.0050: real time    0.0099
-     EDDAV:  cpu time   17.9403: real time   17.9710
-       DOS:  cpu time    0.0090: real time    0.0140
+    POTLOK:  cpu time    0.0680: real time    0.0677
+    SETDIJ:  cpu time    0.0040: real time    0.0051
+     EDDAV:  cpu time   17.7793: real time   17.8060
+       DOS:  cpu time    0.0080: real time    0.0124
     --------------------------------------------
-      LOOP:  cpu time   18.0223: real time   18.0639
+      LOOP:  cpu time   17.8593: real time   17.8932
 
  eigenvalue-minimisations  : 21024
  total energy-change (2. order) : 0.4671546E+01  (-0.3133663E+03)
@@ -949,10 +949,10 @@ Space group operators:
 ----------------------------------------- Iteration    1(   2)  ---------------------------------------
 
 
-     EDDAV:  cpu time   25.7801: real time   25.8056
+     EDDAV:  cpu time   25.5791: real time   25.5817
        DOS:  cpu time    0.0050: real time    0.0052
     --------------------------------------------
-      LOOP:  cpu time   25.7861: real time   25.8120
+      LOOP:  cpu time   25.5851: real time   25.5882
 
  eigenvalue-minimisations  : 30208
  total energy-change (2. order) :-0.1510475E+02  (-0.1470874E+02)
@@ -985,10 +985,10 @@ Space group operators:
 ----------------------------------------- Iteration    1(   3)  ---------------------------------------
 
 
-     EDDAV:  cpu time   19.6250: real time   19.6655
+     EDDAV:  cpu time   19.2771: real time   19.2801
        DOS:  cpu time    0.0050: real time    0.0050
     --------------------------------------------
-      LOOP:  cpu time   19.6310: real time   19.6714
+      LOOP:  cpu time   19.2831: real time   19.2859
 
  eigenvalue-minimisations  : 22912
  total energy-change (2. order) :-0.1387960E+00  (-0.1387721E+00)
@@ -1021,10 +1021,10 @@ Space group operators:
 ----------------------------------------- Iteration    1(   4)  ---------------------------------------
 
 
-     EDDAV:  cpu time   25.7081: real time   25.7550
-       DOS:  cpu time    0.0060: real time    0.0056
+     EDDAV:  cpu time   25.5561: real time   25.5585
+       DOS:  cpu time    0.0050: real time    0.0049
     --------------------------------------------
-      LOOP:  cpu time   25.7151: real time   25.7623
+      LOOP:  cpu time   25.5611: real time   25.5651
 
  eigenvalue-minimisations  : 30016
  total energy-change (2. order) :-0.7847475E-04  (-0.7847441E-04)
@@ -1057,13 +1057,13 @@ Space group operators:
 ----------------------------------------- Iteration    1(   5)  ---------------------------------------
 
 
-     EDDAV:  cpu time   16.2665: real time   16.2980
-       DOS:  cpu time    0.0050: real time    0.0051
+     EDDAV:  cpu time   16.1265: real time   16.1278
+       DOS:  cpu time    0.0050: real time    0.0050
     --------------------------------------------
-      LOOP:  cpu time   16.2715: real time   16.3041
+      LOOP:  cpu time   16.1325: real time   16.1339
 
  eigenvalue-minimisations  : 18016
- total energy-change (2. order) :-0.9502168E-07  (-0.9502360E-07)
+ total energy-change (2. order) :-0.9503503E-07  (-0.9502360E-07)
  number of electron       8.0000001 magnetization 
  augmentation part        8.0000001 magnetization 
 
@@ -1093,13 +1093,13 @@ Space group operators:
 ----------------------------------------- Iteration    1(   6)  ---------------------------------------
 
 
-     EDDAV:  cpu time   22.2706: real time   22.3396
-       DOS:  cpu time    0.0050: real time    0.0053
+     EDDAV:  cpu time   22.1646: real time   22.1669
+       DOS:  cpu time    0.0060: real time    0.0053
     --------------------------------------------
-      LOOP:  cpu time   22.2756: real time   22.3457
+      LOOP:  cpu time   22.1716: real time   22.1731
 
  eigenvalue-minimisations  : 24544
- total energy-change (2. order) :-0.3092225E-08  (-0.3074016E-08)
+ total energy-change (2. order) :-0.3059426E-08  (-0.3073982E-08)
  number of electron       8.0000001 magnetization 
  augmentation part        8.0000001 magnetization 
 
@@ -12167,13 +12167,13 @@ Space group operators:
 ------------------------------------------------
 tot        1.487   1.899   0.000   3.386
  
-    CHARGE:  cpu time    0.0770: real time    0.0786
-    FORLOC:  cpu time    0.0010: real time    0.0010
-    FORNL :  cpu time    0.6719: real time    0.6740
-    STRESS:  cpu time    2.0157: real time    2.0196
-    FORCOR:  cpu time    0.0570: real time    0.0574
-    FORHAR:  cpu time    0.0160: real time    0.0164
-    OFIELD:  cpu time    0.0000: real time    0.0004
+    CHARGE:  cpu time    0.0780: real time    0.0803
+    FORLOC:  cpu time    0.0000: real time    0.0004
+    FORNL :  cpu time    0.6729: real time    0.6731
+    STRESS:  cpu time    2.0237: real time    2.0266
+    FORCOR:  cpu time    0.0550: real time    0.0558
+    FORHAR:  cpu time    0.0160: real time    0.0167
+    OFIELD:  cpu time    0.0000: real time    0.0015
 
   FORCE on cell =-STRESS in cart. coord.  units (eV):
   Direction    XX          YY          ZZ          XY          YZ          ZX
@@ -12238,13 +12238,13 @@ tot        1.487   1.899   0.000   3.386
 --------------------------------------------------------------------------------------------------------
 
 
-    POTLOK:  cpu time    0.0710: real time    0.0750
+    POTLOK:  cpu time    0.0700: real time    0.0720
 
 
 --------------------------------------------------------------------------------------------------------
 
 
-     LOOP+:  cpu time  130.6371: real time  130.9323
+     LOOP+:  cpu time  129.5333: real time  129.6136
     4ORBIT:  cpu time    0.0000: real time    0.0000
  
 
@@ -12274,14 +12274,14 @@ tot        1.487   1.899   0.000   3.386
  General timing and accounting informations for this job:
  ========================================================
   
-                  Total CPU time used (sec):      140.631
-                            User time (sec):       74.799
-                          System time (sec):       65.832
-                         Elapsed time (sec):      141.381
+                  Total CPU time used (sec):      139.696
+                            User time (sec):       78.018
+                          System time (sec):       61.678
+                         Elapsed time (sec):      140.246
   
-                   Maximum memory used (kb):       51168.
+                   Maximum memory used (kb):       50084.
                    Average memory used (kb):           0.
   
-                          Minor page faults:        14056
+                          Minor page faults:        13785
                           Major page faults:            0
-                 Voluntary context switches:        21897
+                 Voluntary context switches:        24278
