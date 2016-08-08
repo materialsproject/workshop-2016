@@ -13,22 +13,28 @@ pip install -r requirements.txt --upgrade
 * Click on your created database. Add a database user. Use "mpworkshop2016", and "Hu!kSma5h" for the username and password.
 * Write down your db host address and port. This comes from the connecting instructions, and should be the form "ds145245.mlab.com:45245". In this case, "ds145245.mlab.com" is the host and 45245 is the port number.
 * Type
-```bash
+```shell
 mgdb init
 ```
-and setup your credentials.
+and setup your credentials. Use the same username and password for both admin and readonly for now.
 
 * Insert the calculations using
 ```shell
 mgdb insert -c db.json CuAu
 ```
+* Do a test with the following:
+```shell
+mgdb query -c db.json --crit '{"pretty_formula": "CuAu"}' --props task_id energy_per_atom
+```
 
 # Using flamyngo
 
 * Update your credentials in example.yaml based on your MongoLab settings.
-* Explore using
+* From a terminal, run
 ```shell
 flm -c example.yaml
 ```
-* Open a browser and go to http://0.0.0.0:5000. Type "Cu", "Au" or CuAu" in the search bar.
+* The above will run a web server to the database. Open a browser and go to http://0.0.0.0:5000. 
+* Type "Cu", "Au" or CuAu" in the search bar.
 * Click on task ids to go to a document view.
+* Mess around with the example.yaml and restart the web server (Ctrl-C and run command again) to see if you can get desired fields to appear for your own needs.

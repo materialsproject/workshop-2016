@@ -5,5 +5,7 @@
     "host": "ds145245.mlab.com",
     "port": 45245,
     "admin_user": "mpworkshop2016",
-    "admin_password": "Hu!kSma5h"
+    "admin_password": "Hu!kSma5h",
+    "readonly_user": "mpworkshop2016",
+    "readonly_password": "Hu!kSma5h"
 }

@@ -1,2 +1,2 @@
-pymatgen-db==0.6.0
+pymatgen-db==0.6.1
 flamyngo==0.4.3
