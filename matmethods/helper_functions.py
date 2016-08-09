@@ -95,7 +95,7 @@ def plot_wf(wf):
         if wf.links[k]:
             for i, j in enumerate(wf.links[k]):
                 if not points_map.get(j, None):
-                    points_map[j] = (i-len(wf.links[k])/2.0, k)
+                    points_map[j] = (i-len(wf.links[k])/float(len(wf.links[k])), k)
     for k in keys:
         for i in wf.links[k]:
             plt.plot([points_map[k][0], points_map[i][0]],
