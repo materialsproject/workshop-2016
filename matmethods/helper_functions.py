@@ -11,6 +11,8 @@ from pymatgen.electronic_structure.dos import Dos
 
 from matmethods.vasp.vasp_powerups import use_fake_vasp
 
+import matplotlib.pyplot as plt
+
 
 def get_db(db_file):
     with open(db_file) as f:
@@ -19,7 +21,7 @@ def get_db(db_file):
         db = conn[creds["database"]]
         return db
 
-    
+
 def get_task_collection(db_file):
     """
     connect to the database and return task collection
@@ -56,8 +58,8 @@ def get_bs(db_file):
 
 
 def get_dos(db_file):
-    d1, d2, d3, d4 = get_collections(db_file)    
-    db = get_db(db_file)    
+    d1, d2, d3, d4 = get_collections(db_file)
+    db = get_db(db_file)
     fs = gridfs.GridFS(db, 'dos_fs')
     dos_fs_id = d4["calcs_reversed"][0]["dos_fs_id"]
     dos_json = zlib.decompress(fs.get(dos_fs_id).read())
@@ -82,3 +84,25 @@ def simulate_elasticity_vasprun(wf, deformations, ref_dir="/wkshp_shared"):
         si_ref_dirs["elastic_deformation_"+str(i+1)] = os.path.join(reference_dir,
                                                                     "Si-elastic_deformation-"+str(i+1))
     return use_fake_vasp(wf, si_ref_dirs, params_to_check=["ENCUT"])
+
+
+def plot_wf(wf):
+    """ visual representation of the workflow"""
+    keys = sorted(wf.links.keys(), reverse=True)
+    points_map = {}
+    points_map.update({keys[0]:(-0.5, keys[0]+1)})
+    for k in keys:
+        if wf.links[k]:
+            for i, j in enumerate(wf.links[k]):
+                if not points_map.get(j, None):
+                    points_map[j] = (i-len(wf.links[k])/2.0, k)
+    for k in keys:
+        for i in wf.links[k]:
+            plt.plot([points_map[k][0], points_map[i][0]],
+                     [points_map[k][1], points_map[i][1]], 
+                     'rD--', markersize=12, markerfacecolor='blue')
+            plt.text(points_map[k][0], points_map[k][1], str(k), fontsize=20)
+            plt.text(points_map[i][0], points_map[i][1], str(i), fontsize=20)
+
+    plt.axis('scaled')
+    plt.axis('off')
