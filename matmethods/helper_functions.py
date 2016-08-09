@@ -87,7 +87,7 @@ def simulate_elasticity_vasprun(wf, deformations, ref_dir="/wkshp_shared"):
 
 
 def plot_wf(wf, depth_factor=1.0, style='rD--', markersize=5,
-            markerfacecolor='blue', fontsize=12):
+            markerfacecolor='blue', fontsize=12, numerical_label=False):
     """ visual representation of the workflow """
     keys = sorted(wf.links.keys(), reverse=True)
     points_map = {}
@@ -102,7 +102,11 @@ def plot_wf(wf, depth_factor=1.0, style='rD--', markersize=5,
             plt.plot([points_map[k][0], points_map[i][0]],
                      [points_map[k][1], points_map[i][1]],
                      style, markersize=markersize, markerfacecolor=markerfacecolor)
-            plt.text(points_map[k][0], points_map[k][1], str(k), fontsize=fontsize)
-            plt.text(points_map[i][0], points_map[i][1], str(i), fontsize=fontsize)
+            if numerical_label:
+                plt.text(points_map[k][0], points_map[k][1], str(k), fontsize=fontsize)
+                plt.text(points_map[i][0], points_map[i][1], str(i), fontsize=fontsize)
+            else:
+                plt.text(points_map[k][0], points_map[k][1], wf.id_fw[k].name, fontsize=fontsize)
+                plt.text(points_map[i][0], points_map[i][1], wf.id_fw[i].name, fontsize=fontsize)
     plt.axis('scaled')
     plt.axis('off')
