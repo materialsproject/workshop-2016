@@ -1,6 +1,6 @@
 host: localhost
 logdir: null
-name: fireworks_mm
+name: fireworks
 password: null
 port: 27017
 ssl_ca_file: null
