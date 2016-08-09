@@ -38,3 +38,4 @@ flm -c example.yaml
 * Type "Cu", "Au" or CuAu" in the search bar.
 * Click on task ids to go to a document view.
 * Mess around with the example.yaml and restart the web server (Ctrl-C and run command again) to see if you can get desired fields to appear for your own needs.
+
