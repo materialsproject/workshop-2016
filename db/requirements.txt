@@ -1,1 +1,1 @@
-flamyngo==0.4.3
+flamyngo==0.5.2
