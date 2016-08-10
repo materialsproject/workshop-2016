@@ -14,7 +14,13 @@ from matmethods.vasp.vasp_powerups import use_fake_vasp
 import matplotlib.pyplot as plt
 
 
+__author__ = 'Kiran Mathew <kmathew@lbl.gov>'
+
+
 def get_db(db_file):
+    """
+    connect to the database and return the connection
+    """    
     with open(db_file) as f:
         creds = json.loads(f.read())
         conn = MongoClient(creds["host"], creds["port"])
@@ -26,12 +32,9 @@ def get_task_collection(db_file):
     """
     connect to the database and return task collection
     """
+    db = get_db(db_file)
     with open(db_file) as f:
         creds = json.loads(f.read())
-        conn = MongoClient(creds["host"], creds["port"])
-        db = conn[creds["database"]]
-        if "admin_user" in creds:
-            db.authenticate(creds["admin_user"], creds["admin_password"])
         return db[creds["collection"]]
 
 
@@ -48,6 +51,7 @@ def get_collections(db_file):
 
 
 def get_bs(db_file):
+    """ return bandstructure object from the database """
     d1, d2, d3, d4 = get_collections(db_file)
     db = get_db(db_file)
     fs = gridfs.GridFS(db, 'bandstructure_fs')
@@ -58,6 +62,7 @@ def get_bs(db_file):
 
 
 def get_dos(db_file):
+    """ return density of states object from the database """    
     d1, d2, d3, d4 = get_collections(db_file)
     db = get_db(db_file)
     fs = gridfs.GridFS(db, 'dos_fs')
@@ -86,27 +91,35 @@ def simulate_elasticity_vasprun(wf, deformations, ref_dir="/wkshp_shared"):
     return use_fake_vasp(wf, si_ref_dirs, params_to_check=["ENCUT"])
 
 
-def plot_wf(wf, depth_factor=1.0, style='rD--', markersize=5,
-            markerfacecolor='blue', fontsize=12, numerical_label=False):
-    """ visual representation of the workflow """
+def plot_wf(wf, depth_factor=1.0, breadth_factor=2.0, style='rD--', markersize=10,
+            markerfacecolor='blue', fontsize=12, numerical_label=False, text_loc_factor=1.1,
+            save_as=None):
+    """ generate a visual representation of the workflow """
     keys = sorted(wf.links.keys(), reverse=True)
     points_map = {}
-    points_map.update({keys[0]:(-0.5, (keys[0]+1)*depth_factor)})
+    points_map.update({keys[0]:(-0.5*breadth_factor, (keys[0]+1)*depth_factor)})
     for k in keys:
         if wf.links[k]:
             for i, j in enumerate(wf.links[k]):
                 if not points_map.get(j, None):
-                    points_map[j] = (i-len(wf.links[k])/2.0, k*depth_factor)
+                    points_map[j] = ((i-len(wf.links[k])/2.0)*breadth_factor, k*depth_factor)
+    # plot lines
     for k in keys:
         for i in wf.links[k]:
             plt.plot([points_map[k][0], points_map[i][0]],
                      [points_map[k][1], points_map[i][1]],
                      style, markersize=markersize, markerfacecolor=markerfacecolor)
             if numerical_label:
-                plt.text(points_map[k][0], points_map[k][1], str(k), fontsize=fontsize)
-                plt.text(points_map[i][0], points_map[i][1], str(i), fontsize=fontsize)
+                plt.text(points_map[k][0]*text_loc_factor, points_map[k][1]*text_loc_factor,
+                         str(k), fontsize=fontsize)
+                plt.text(points_map[i][0]*text_loc_factor, points_map[i][1]*text_loc_factor,
+                         str(i), fontsize=fontsize)
             else:
-                plt.text(points_map[k][0], points_map[k][1], wf.id_fw[k].name, fontsize=fontsize)
-                plt.text(points_map[i][0], points_map[i][1], wf.id_fw[i].name, fontsize=fontsize)
+                plt.text(points_map[k][0]*text_loc_factor, points_map[k][1]*text_loc_factor,
+                         wf.id_fw[k].name, fontsize=fontsize)
+                plt.text(points_map[i][0]*text_loc_factor, points_map[i][1]*text_loc_factor,
+                         wf.id_fw[i].name, fontsize=fontsize)
     plt.axis('scaled')
     plt.axis('off')
+    if save_as:
+        plt.savefig(save_as)
