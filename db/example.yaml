@@ -30,7 +30,7 @@ collections:
     # Again, processing function can be any callable, and you can define your own.
     # For example, you can take in a float and render it as a fixed decimal.
     summary:
-      - [task_id, str]
+      - [task_id, str, tid]
       - [pretty_formula, str, formula]
       - [spacegroup.symbol, str, spacegroup]
       - [output.final_energy, float, energy]
