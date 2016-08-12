@@ -92,8 +92,8 @@ def simulate_elasticity_vasprun(wf, deformations, ref_dir="/wkshp_shared"):
 
 
 def plot_wf(wf, depth_factor=1.0, breadth_factor=2.0, style='rD--', markersize=10,
-            markerfacecolor='blue', fontsize=12, numerical_label=False, text_loc_factor=1.1,
-            save_as=None):
+            markerfacecolor='blue', fontsize=12, labels_on=True,
+            numerical_label=False, text_loc_factor=1.0,save_as=None):
     """ generate a visual representation of the workflow """
     keys = sorted(wf.links.keys(), reverse=True)
     points_map = {}
@@ -109,16 +109,17 @@ def plot_wf(wf, depth_factor=1.0, breadth_factor=2.0, style='rD--', markersize=1
             plt.plot([points_map[k][0], points_map[i][0]],
                      [points_map[k][1], points_map[i][1]],
                      style, markersize=markersize, markerfacecolor=markerfacecolor)
-            if numerical_label:
-                plt.text(points_map[k][0]*text_loc_factor, points_map[k][1]*text_loc_factor,
-                         str(k), fontsize=fontsize)
-                plt.text(points_map[i][0]*text_loc_factor, points_map[i][1]*text_loc_factor,
-                         str(i), fontsize=fontsize)
-            else:
-                plt.text(points_map[k][0]*text_loc_factor, points_map[k][1]*text_loc_factor,
-                         wf.id_fw[k].name, fontsize=fontsize)
-                plt.text(points_map[i][0]*text_loc_factor, points_map[i][1]*text_loc_factor,
-                         wf.id_fw[i].name, fontsize=fontsize)
+            if labels_on:
+                if numerical_label:
+                    plt.text(points_map[k][0]*text_loc_factor, points_map[k][1]*text_loc_factor,
+                            str(k), fontsize=fontsize)
+                    plt.text(points_map[i][0]*text_loc_factor, points_map[i][1]*text_loc_factor,
+                            str(i), fontsize=fontsize)
+                else:
+                    plt.text(points_map[k][0]*text_loc_factor, points_map[k][1]*text_loc_factor,
+                            wf.id_fw[k].name, fontsize=fontsize)
+                    plt.text(points_map[i][0]*text_loc_factor, points_map[i][1]*text_loc_factor,
+                            wf.id_fw[i].name, fontsize=fontsize)
     plt.axis('scaled')
     plt.axis('off')
     if save_as:
